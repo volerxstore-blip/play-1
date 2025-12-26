@@ -2,93 +2,32 @@
 <html lang="ar">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>لعبة تخمين الرقم</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f2f2f2;
-      text-align: center;
-      margin-top: 50px;
-    }
-    h1 {
-      color: #4CAF50;
-    }
-    input {
-      padding: 10px;
-      font-size: 16px;
-      width: 50px;
-      margin-top: 10px;
-    }
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
-      margin-top: 10px;
-      cursor: pointer;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 5px;
-    }
-    button:hover {
-      background-color: #45a049;
-    }
-    .message {
-      margin-top: 20px;
-      font-size: 18px;
-      font-weight: bold;
-    }
-    .reset-button {
-      background-color: #ff5722;
-    }
-  </style>
+<meat name="viewport" content="width=device-width, initial-scale=1.0" >
+  <titel>  لعبة تخمين الارقام </titel>
 </head>
-<body>
-  <h1>لعبة تخمين الرقم</h1>
-  <p>حاول أن تخمن الرقم الصحيح بين 1 و 100!</p>
-
-  <input type="number" id="userGuess" placeholder="أدخل رقمك" />
-  <button onclick="checkGuess()">تخمين</button>
-
-  <div class="message" id="message"></div>
-  <button id="resetButton" class="reset-button" onclick="resetGame()" style="display:none;">إعادة اللعب</button>
-
-  <script>
-    let randomNumber = Math.floor(Math.random() * 100) + 1;
-    let attempts = 0;
-
-    function checkGuess() {
-      const userGuess = document.getElementById("userGuess").value;
-      const messageElement = document.getElementById("message");
-
-      if (userGuess < 1 || userGuess > 100 || userGuess === "") {
-        messageElement.textContent = "يرجى إدخال رقم بين 1 و 100.";
-        messageElement.style.color = "red";
-        return;
-      }
-
-      attempts++;
-
-      if (userGuess < randomNumber) {
-        messageElement.textContent = "الرقم أكبر من ذلك!";
-        messageElement.style.color = "orange";
-      } else if (userGuess > randomNumber) {
-        messageElement.textContent = "الرقم أصغر من ذلك!";
-        messageElement.style.color = "orange";
-      } else {
-        messageElement.textContent = `مبروك! لقد خمنت الرقم الصحيح وهو ${randomNumber} في ${attempts} محاولة.`;
-        messageElement.style.color = "green";
-        document.getElementById("resetButton").style.display = "block"; // يظهر زر إعادة اللعب
-      }
-    }
-
-    function resetGame() {
-      randomNumber = Math.floor(Math.random() * 100) + 1;
-      attempts = 0;
-      document.getElementById("userGuess").value = "";
-      document.getElementById("message").textContent = "";
-      document.getElementById("resetButton").style.display = "none"; // إخفاء زر إعادة اللعب
-    }
-  </script>
-</body>
+  <body>
+    <h1> لعبة تحمين الارقام </h1>
+    <p> انا اخترت رقم من1-10 ولازم تخمنه </p>
+    <inqut type="number" id="guess" placeholder="اكتب رقمك هون" >
+      <button onclick="checkguess()"> تخمين </button>
+      <P id="result">  </P>
+      <script>
+        // 1.  اختيار رقم عشوائي بين 1 و 10
+        condt secretnumber = Math.floor(Math.random() * 10) + 1
+        // 2. دالة التحقق من الرقم
+        function chechGuess () {
+          const userGuess = Number(docment.getElementById("Guess").value);
+          if(UserGuess === secretNumber) {
+            result.textcontent = " شاطر جبتها صح";
+            result.style.color = "green";
+          }else if (UserGuess < secretNumber) {
+            result.textcontent = "اتخمينك اصغر من الرقم";
+            result.style.color = "orange";
+          } else { 
+            result.textcontent = "اتخمينك اكبر من الرقم";
+            result.style.color = "red";
+          }
+            
+      </script>
+  </body>
 </html>
